@@ -1,17 +1,19 @@
 on:
   push:
     branches: new-CIC-45/sample
-name: split
+name: split example
 jobs:
-  latest-version:
-    name: Get Latest Release
+  example:
     runs-on: ubuntu-latest
     steps:
-      - uses: rishabhgupta/split-by@v1
+      - uses: jungwinter/split@v2
         id: split
         with:
-          string: "GITHUB_HEAD_REF"
-          split-by: '/'
-      - run: | 
-          echo "${{ steps.split.outputs._0}}"
-          echo "${{ steps.split.outputs._1}}"
+          msg: '/release split v1.0.0'
+
+      - name: release package
+    
+        uses: actions/create-release@latest
+        with:
+          release_name: Release ${{ steps.split.outputs._1 }}
+          tag_name: ${{ steps.split.outputs._2 }}
