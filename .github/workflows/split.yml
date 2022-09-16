@@ -1,0 +1,15 @@
+on:
+  push:
+    branches: [new-CIC-45/sample]
+name: split
+jobs:
+  latest-version:
+    name: Get Latest Release
+    runs-on: ubuntu-latest
+- uses: rishabhgupta/split-by@v1
+  id: split
+  with:
+    string: 'GITHUB_HEAD_REF'
+    split-by: '/'
+- run: | 
+    echo "${{ steps.split.outputs._1}}"
