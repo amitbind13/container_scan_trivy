@@ -10,7 +10,7 @@ jobs:
       - uses: rishabhgupta/split-by@v1
         id: split
         with:
-          string: 'GITHUB_HEAD_REF'
+          string: "GITHUB_HEAD_REF"
           split-by: '/'
       - run: | 
           echo "${{ steps.split.outputs._0}}"
