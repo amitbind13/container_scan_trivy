@@ -13,4 +13,5 @@ jobs:
           string: 'GITHUB_HEAD_REF'
           split-by: '/'
       - run: | 
+          echo "${{ steps.split.outputs._0}}"
           echo "${{ steps.split.outputs._1}}"
