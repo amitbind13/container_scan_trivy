@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [new-CIC-45/sample]
+    branches: new-CIC-45/sample
 name: split
 jobs:
   latest-version:
